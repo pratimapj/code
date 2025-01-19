@@ -11,33 +11,46 @@ import {
 export default function* rootSaga() {
   yield all([watchFetchData()]);
 }
-
-const fetchLocalData = () => {
-  return fetch('/sample-data.json')
-    .then((response) => {
-      console.log('data 11', response)
-      return response.json()}
-    
-    
-  )
-    .catch((error) => { throw error });
+//D:\Praatima\Westpac\code\src\store\sample-data.json
+// Function to fetch the JSON from an API or local file
+const fetchJsonData = async () => {
+  //./src/store/store.js
+  const response = await fetch('/sample-data.json');
+  if (!response.ok) throw new Error('Failed to fetch JSON');
+  return await response.json();
 };
 
+
+function* fetchJsonSaga() {
+  try {
+    const data = yield call(fetchJsonData);
+    console.log("final data", data)
+    yield put(fetchDataSuccess(data));
+  } catch (error) {
+    yield put(fetchDataFailure('error'));
+  }
+}
+
+
+
 function* fetchDataSaga() {
+  console.log('ff inside fetch')
     try {
       
       // const response = yield call(fetchLocalData);
-        const response = yield call(fetch, '/sample-data.json');  // Adjust path as necessary
+      //  const response = yield call(fetch, './sample-data.json');  // Adjust path as necessary
     
     //console.log('response 11', response.json())
  
-    yield put(fetchDataSuccess(compnayData)); // Dispatch success action
+   // yield put(fetchDataSuccess(compnayData)); // Dispatch success action
     } catch (error) {
-      yield put(fetchDataFailure('error')); // Dispatch failure action
+    //  yield put(fetchDataFailure('error')); // Dispatch failure action
     }
   }
   
+  
   // Watcher Saga
   export function* watchFetchData() {
-    yield takeLatest(FETCH_DATA_REQUEST, fetchDataSaga);
+    //yield takeLatest(FETCH_DATA_REQUEST, fetchDataSaga);
+    yield takeLatest(FETCH_DATA_REQUEST, fetchJsonSaga);
   }

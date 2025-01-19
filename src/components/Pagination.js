@@ -1,3 +1,4 @@
+import React from 'react';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const handlePageClick = (page) => {
@@ -23,7 +24,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       >
         Prev
       </button>
-      
+
       {generatePageNumbers().map((page) => (
         <button
           key={page}
@@ -33,7 +34,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           {page}
         </button>
       ))}
-      
+
       <button
         onClick={() => handlePageClick(currentPage + 1)}
         disabled={currentPage === totalPages}

@@ -10,7 +10,7 @@ const EmployeeDetailsModal = ({ modalOpen, onClose, selectedEmployee }) => {
                         <image src={selectedEmployee.avatar}></image>
                     </div>
                     <span variant="body2" color="textSecondary">
-                        {new Date(selectedEmployee.dateJoined).toLocaleDateString()}
+                        {selectedEmployee.jobTitle}
                     </span><br />
                     <span variant="body2" color="textSecondary">
                         <span style={{ fontWeight: "500" }}>Age:</span> {selectedEmployee.age}

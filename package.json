@@ -4,12 +4,10 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/material": "^6.4.0",
-    "@reduxjs/toolkit": "^2.5.0",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-image": "^4.1.0",
     "react-redux": "^9.2.0",
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
@@ -57,15 +55,19 @@
       "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
     "collectCoverage": true,
-  "coverageDirectory": "./coverage", 
-  "coverageReporters": ["html", "text", "lcov"], 
-  "coverageThreshold": {
-    "global": {
-      "branches": 80,
-      "functions": 80,
-      "lines": 80,
-      "statements": 80
+    "coverageDirectory": "./coverage",
+    "coverageReporters": [
+      "html",
+      "text",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
     }
-  }
   }
 }

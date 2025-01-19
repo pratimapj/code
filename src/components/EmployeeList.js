@@ -64,9 +64,9 @@ const EmployeeList = () => {
   }, [dispatch]);
 
   return (
-    <div style={{ border: "1px solid black", height: '85%', width: "98%", padding: 10 }}>
+    <div style={{ border: "1px solid grey", width: "98%", padding: 10 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: 15 }}>
-        <span>comany name</span>
+        <span></span>
         <div style={{}}>
           <input
             type="text"
@@ -110,7 +110,7 @@ const EmployeeList = () => {
           {displayedEmployees?.map((row) => (
             <tr key={row.id} style={{ borderBottom: "1px solid lightgrey" }} onClick={() => handleEmployeeClick(row)}>
               <td style={{ padding: '16px' }}>{row.id}</td>
-              <td style={{ padding: '16px' }}><div><img src={row.avatar} alt="Italian Trulli" /><span>{row.firstName} {row.lastName}</span></div></td>
+              <td style={{ padding: '16px' }}><div><img src={row.avatar} /><span>{row.firstName} {row.lastName}</span></div></td>
               <td style={{ padding: '16px' }}>{row.contactNo}</td>
               <td style={{ padding: '16px' }}>{row.address}</td>
               <td><button className="open-modal-button" onClick={openModal}>
